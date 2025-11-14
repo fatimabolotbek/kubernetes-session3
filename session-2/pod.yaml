@@ -1,0 +1,30 @@
+# kubectl run nginx-pod --image=nginx
+apiVersion: v1                # Kubernetes API version used in this YAML decriptor
+kind: Pod                     # Type of Kubernetes object/resource
+metadata:                     # Pod metadata (name, labels, annotations and so on)
+  name: nginx-pod 
+  labels: 
+#label use for the organizing and selections 
+    env: production
+    tier: backend 
+    app: nginx
+    release: stable  
+  annotations:
+# Annotations are used for identifying information
+    owner: fatima
+    purpose: testing    
+# Annotation can be  used by Kubernetes Tools 
+    promethues.io/scrape: "true"
+    promethues.io/port: "8080"
+    description: This is for the annotations 
+          # Pod Name
+spec:                         # Pod Specification/Contents (list of containers, volumes, image, ports and so on)
+  containers:
+  - image: nginx              # Container Image
+    name: nginx-container     # Container Name
+    ports:            
+    - containerPort: 80       # The Port the container is listening on
+      protocol: TCP
+
+# kubectl -->http request --> kubernetes.fatima.com/v1/pod
+#- (list)

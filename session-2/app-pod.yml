@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-pod
+  labels: 
+    env: development
+    tier: frontend
+    app: web
+    release: canary
+spec:
+  containers:
+    - name: app-container
+      image: httpd:latest
+      ports:
+        - containerPort: 80
+          protocol: TCP

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apache-pod
+  labels: 
+  #key must be unique , value can be reped. 
+    env: development
+    tier: frontend
+    app: apache
+    release: stable
+spec:
+  containers:
+    - name: apache-container
+      image: httpd:latest
+      ports:
+        - containerPort: 80
+          protocol: TCP
