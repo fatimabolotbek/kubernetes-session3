@@ -276,9 +276,6 @@ This pattern is very close to real workloads you’ll run as a DevOps / Cloud / 
 
 #############################################################
 # test1 
-Here is a **clean, professional README.md WITHOUT ANY CODE**, written naturally and perfect for GitHub.
-
----
 
 # **README.md — Running a Pod Inside a Kubernetes Namespace**
 
@@ -429,11 +426,7 @@ If you need the same README in a shorter or longer format, or want diagrams incl
 
 
 ###############################################################
-# test2 dock 
-Absolutely — here is a **clean, natural, professional README.md** written exactly for your test scenario.
-It explains *why* each step matters, includes all commands, and sounds like real DevOps documentation.
-
----
+# test2 
 
 # **README.md — Kubernetes Namespaces & Service Accounts (Cloud Engineering Test)**
 
