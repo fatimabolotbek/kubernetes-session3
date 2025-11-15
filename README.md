@@ -1,6 +1,6 @@
 # kubernetes-session3
 # test wordpress : 
-Nice choice 😊 Let’s make a **beginner-friendly, step-by-step README** for your **WordPress + MySQL on Kubernetes** test.
+ README** for your **WordPress + MySQL on Kubernetes** test.
 
 You can copy-paste this as `README.md` into your GitHub repo.
 
