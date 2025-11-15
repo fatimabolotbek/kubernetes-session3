@@ -1,0 +1,28 @@
+#replicaset Label Selectore
+# Equality Besed (app=nginx)
+#set besed expressions ,Operators 
+
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+    - key: tier
+      operators: In 
+      value:
+      - frontend
+      - web
+      - db
+      - backend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx

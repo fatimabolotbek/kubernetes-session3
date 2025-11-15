@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx
+spec:
+  replicas: 3      # Desired number if Pods 
+  selector:      # Label Selector for ReplicationController 
+    app: nginx    # ReplicationController always look both key and value (app=ingnx)
+  template:
+    metadata:
+      name: nginx   # Pod Name 
+      labels:       # Pod Label 
+        app: nginx
+        release: stable
+        env: production
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
