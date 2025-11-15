@@ -1,11 +1,5 @@
 # kubernetes-session3
 # test wordpress : 
- README** for your **WordPress + MySQL on Kubernetes** test.
-
-You can copy-paste this as `README.md` into your GitHub repo.
-
----
-
 # 🏗️ WordPress + MySQL on Kubernetes (Beginner Friendly)
 
 ## 🌱 Goal of this Lab
@@ -421,8 +415,6 @@ kubectl delete -f namespace.yaml
 
 This exercise validated the ability to deploy and manage Kubernetes resources inside a dedicated namespace.
 It reflects real-world practices for organizing clusters and ensuring that applications remain isolated, secure, and easy to operate.
-
-If you need the same README in a shorter or longer format, or want diagrams included, I can generate that too.
 
 
 ###############################################################
