@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: internal-app
+  namespace: default
+  labels:
+    app: internal-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: internal-app
+  template:
+    metadata:
+      labels:
+        app: internal-app
+    spec:
+      containers:
+      - name: app
+        image: nginx:stable
+        ports:
+        - containerPort: 80
+

@@ -1,0 +1,23 @@
+apiVersion: v1     # THIS IS TELLS API version this object belongs 
+kind: ResourceQuota   # Define the object 
+metadata:              # it is identifying information
+  name: mem-cpu-frontend-q   # name of this quota object
+  namespace: frontend        # Specifies that this quota applies to the frontend  ns
+spec:                       # this is for the what resources are limited 
+  hard:                     # this is for the max and min usege quota limite 
+    requests.cpu: "0.5"      # this all pod exceed only 0.5 core 
+    requests.memory: 500Mi    # all memery exceed 500mib
+    limits.cpu: "0.5"
+    limits.memory: 500Mi
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: mem-cpu-backend-q
+  namespace: backend
+spec:
+  hard:
+    requests.cpu: "0.5"
+    requests.memory: 500Mi
+    limits.cpu: "0.5"
+    limits.memory: 500Mi

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wordpress
+  namespace: frontend
+  labels:
+    app: wordpress
+spec:
+  containers:
+  - name: wordpress
+    image: wordpress:latest
+    env:
+    - name: WORDPRESS_DB_HOST
+      value: mysql-service.backend.svc.cluster.local:3306
+    - name: WORDPRESS_DB_USER
+      value: wpuser
+    - name: WORDPRESS_DB_PASSWORD
+      value: wpuser
+    - name: WORDPRESS_DB_NAME
+      value: wordpress
+    ports:
+    - containerPort: 80
+    resources:
+      requests:
+        cpu: "0.25"
+        memory: "250Mi"
+      limits:
+        cpu: "0.25"
+        memory: "250Mi"
+
