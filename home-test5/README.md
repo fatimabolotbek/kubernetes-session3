@@ -1,8 +1,7 @@
 ### Running Pod with Arguments – Kubernetes
-
 This small exercise is about learning how to run a Pod in Kubernetes using **command-line arguments** args  and then exporting Pod details to a JSON file. The main idea:Instead of hardcoding the command in the image, we use Kubernetes to pass arguments to the container at runtime.
 
-### Test Requirements
+## Test Requirements
 
 ```bash
 - Create a Pod manifest saved as: `$(pwd)/pod.yaml`.
