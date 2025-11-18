@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: application-probe
+  labels:
+    app: application-probe
+    env: test
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 5000
+      # Readiness probe → is the app ready to receive traffic?
+      readinessProbe:
+        httpGet:
+          path: /started
+          port: 5000
+        initialDelaySeconds: 5
+        periodSeconds: 5
+      # Liveness probe → is the app still healthy?
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 5000
+        initialDelaySeconds: 10
+        periodSeconds: 5
+
+
+
