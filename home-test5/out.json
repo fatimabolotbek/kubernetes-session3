@@ -1,0 +1,189 @@
+{
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": {
+        "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Pod\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"akumo-pod\",\"env\":\"test\"},\"name\":\"akumo-pod\",\"namespace\":\"default\"},\"spec\":{\"containers\":[{\"args\":[\"-c\",\"sleep 5000\"],\"image\":\"busybox\",\"name\":\"akumo-container\"}],\"restartPolicy\":\"Never\"}}\n"
+        },
+        "creationTimestamp": "2025-11-18T22:26:29Z",
+        "generation": 1,
+        "labels": {
+            "app": "akumo-pod",
+            "env": "test"
+        },
+        "name": "akumo-pod",
+        "namespace": "default",
+        "resourceVersion": "1926341",
+        "uid": "12975526-d90e-4ef6-b871-64dce7668617"
+    },
+    "spec": {
+        "containers": [
+            {
+                "args": [
+                    "-c",
+                    "sleep 5000"
+                ],
+                "image": "busybox",
+                "imagePullPolicy": "Always",
+                "name": "akumo-container",
+                "resources": {},
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                    {
+                        "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                        "name": "kube-api-access-jxkwg",
+                        "readOnly": true
+                    }
+                ]
+            }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "kubernetes-snkoi",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Never",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+            {
+                "effect": "NoExecute",
+                "key": "node.kubernetes.io/not-ready",
+                "operator": "Exists",
+                "tolerationSeconds": 300
+            },
+            {
+                "effect": "NoExecute",
+                "key": "node.kubernetes.io/unreachable",
+                "operator": "Exists",
+                "tolerationSeconds": 300
+            }
+        ],
+        "volumes": [
+            {
+                "name": "kube-api-access-jxkwg",
+                "projected": {
+                    "defaultMode": 420,
+                    "sources": [
+                        {
+                            "serviceAccountToken": {
+                                "expirationSeconds": 3607,
+                                "path": "token"
+                            }
+                        },
+                        {
+                            "configMap": {
+                                "items": [
+                                    {
+                                        "key": "ca.crt",
+                                        "path": "ca.crt"
+                                    }
+                                ],
+                                "name": "kube-root-ca.crt"
+                            }
+                        },
+                        {
+                            "downwardAPI": {
+                                "items": [
+                                    {
+                                        "fieldRef": {
+                                            "apiVersion": "v1",
+                                            "fieldPath": "metadata.namespace"
+                                        },
+                                        "path": "namespace"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "status": {
+        "conditions": [
+            {
+                "lastProbeTime": null,
+                "lastTransitionTime": "2025-11-18T22:26:31Z",
+                "status": "False",
+                "type": "PodReadyToStartContainers"
+            },
+            {
+                "lastProbeTime": null,
+                "lastTransitionTime": "2025-11-18T22:26:29Z",
+                "status": "True",
+                "type": "Initialized"
+            },
+            {
+                "lastProbeTime": null,
+                "lastTransitionTime": "2025-11-18T22:26:29Z",
+                "reason": "PodFailed",
+                "status": "False",
+                "type": "Ready"
+            },
+            {
+                "lastProbeTime": null,
+                "lastTransitionTime": "2025-11-18T22:26:29Z",
+                "reason": "PodFailed",
+                "status": "False",
+                "type": "ContainersReady"
+            },
+            {
+                "lastProbeTime": null,
+                "lastTransitionTime": "2025-11-18T22:26:29Z",
+                "status": "True",
+                "type": "PodScheduled"
+            }
+        ],
+        "containerStatuses": [
+            {
+                "containerID": "containerd://7175252beef1919fb4948559ba9176ae3266bc0e36872a155beb430dc4975164",
+                "image": "docker.io/library/busybox:latest",
+                "imageID": "docker.io/library/busybox@sha256:e3652a00a2fabd16ce889f0aa32c38eec347b997e73bd09e69c962ec7f8732ee",
+                "lastState": {},
+                "name": "akumo-container",
+                "ready": false,
+                "resources": {},
+                "restartCount": 0,
+                "started": false,
+                "state": {
+                    "terminated": {
+                        "containerID": "containerd://7175252beef1919fb4948559ba9176ae3266bc0e36872a155beb430dc4975164",
+                        "exitCode": 128,
+                        "finishedAt": "2025-11-18T22:26:30Z",
+                        "message": "failed to create containerd task: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: \"-c\": executable file not found in $PATH: unknown",
+                        "reason": "StartError",
+                        "startedAt": "1970-01-01T00:00:00Z"
+                    }
+                },
+                "volumeMounts": [
+                    {
+                        "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                        "name": "kube-api-access-jxkwg",
+                        "readOnly": true,
+                        "recursiveReadOnly": "Disabled"
+                    }
+                ]
+            }
+        ],
+        "hostIP": "10.116.0.2",
+        "hostIPs": [
+            {
+                "ip": "10.116.0.2"
+            }
+        ],
+        "phase": "Failed",
+        "podIP": "10.150.1.194",
+        "podIPs": [
+            {
+                "ip": "10.150.1.194"
+            }
+        ],
+        "qosClass": "BestEffort",
+        "startTime": "2025-11-18T22:26:29Z"
+    }
+}
