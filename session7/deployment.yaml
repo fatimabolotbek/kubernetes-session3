@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: simple-deploy
+  name: simple-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: simple-deploy
+    spec:
+      containers:
+      - image: vish/stress
+        name: simple-app
+        args:
+        - -cpus
+        - "1"
+        resources:
+          requests:
+            cpu: "100m"

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-pod
+spec:
+  containers:
+    - name: liveness-container
+      image: luksa/kubia-unhealthy
+      livenessProbe:
+        httpGet:          # Liveness Probe that will perform an HTTP GET
+          path: /         # The path to request in the HTTP request
+          port: 8080      # The network port the prob should connect to 
